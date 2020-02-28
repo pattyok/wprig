@@ -1,0 +1,61 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+.header-image {
+	margin: 0 auto;
+}
+
+.header-image img {
+	display: block;
+	margin: 0 auto;
+}
+
+.custom-logo-link {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.site-branding {
+	padding: 1.25rem 2rem 1rem;
+	max-width: 350px;
+	margin: 0 auto;
+}
+
+.site-title {
+	margin: 0;
+	font-stretch: condensed;
+	font-size: 38px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #333332;
+	white-space: nowrap;
+}
+
+.site-title a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.site-description {
+	margin: 0.4375em 0 0;
+	font-stretch: condensed;
+	font-size: 17px;
+	font-weight: inherit;
+	line-height: 1.4;
+	word-wrap: break-word;
+	color: #757575;
+}
+
+@media (--tablet-up) {
+
+	.site-header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.site-branding {
+		padding: 2rem 0;
+	}
+}

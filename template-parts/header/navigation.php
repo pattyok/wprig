@@ -46,10 +46,11 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 		}
 		?>
 	>
-		<?php esc_html_e( 'Menu', 'wp-rig' ); ?>
+		<span class="menu-toggle-label"><?php esc_html_e( 'Menu', 'wp-rig' ); ?></span>
+		<i class="menu-toggle-icon icon-menu"></i>
 	</button>
 
 	<div class="primary-menu-container">
-		<?php wp_rig()->display_primary_nav_menu( [ 'menu_id' => 'primary-menu' ] ); ?>
+		<?php wp_rig()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 	</div>
 </nav><!-- #site-navigation -->

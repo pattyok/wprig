@@ -12,7 +12,7 @@ import { pipeline } from 'mississippi';
 /**
  * Internal dependencies
  */
-import { paths, gulpPlugins, isProd } from './constants';
+import { paths, gulpPlugins, isProd, assetsDir } from './constants';
 import { getThemeConfig, getStringReplacementTasks, logError } from './utils';
 
 export function scriptsBeforeReplacementStream() {

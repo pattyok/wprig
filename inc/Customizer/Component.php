@@ -33,8 +33,8 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
-		add_action( 'customize_preview_init', [ $this, 'action_enqueue_customize_preview_js' ] );
+		add_action( 'customize_register', array( $this, 'action_customize_register' ) );
+		add_action( 'customize_preview_init', array( $this, 'action_enqueue_customize_preview_js' ) );
 	}
 
 	/**
@@ -50,33 +50,59 @@ class Component implements Component_Interface {
 		if ( isset( $wp_customize->selective_refresh ) ) {
 			$wp_customize->selective_refresh->add_partial(
 				'blogname',
-				[
+				array(
 					'selector'        => '.site-title a',
 					'render_callback' => function() {
 						bloginfo( 'name' );
 					},
-				]
+				)
 			);
 			$wp_customize->selective_refresh->add_partial(
 				'blogdescription',
-				[
+				array(
 					'selector'        => '.site-description',
 					'render_callback' => function() {
 						bloginfo( 'description' );
 					},
-				]
+				)
 			);
 		}
+
+		// replace title_tagline with multiple options
+		$wp_customize->remove_control( 'display_header_text' );
+
+		$wp_customize->add_setting(
+			'title_tagline_display',
+			array(
+				'type'      => 'theme_mod',
+				'default'   => 'title_tagline',
+				'transport' => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'title_tagline_display',
+			array(
+				'type'    => 'radio',
+				'section' => 'title_tagline',
+				'choices' => array(
+					'title_tagline' => __( 'Display Title & Tagline', 'wp-rig' ),
+					'title_only'    => __( 'Display Title Only', 'wp-rig' ),
+					'tagline_only'    => __( 'Display Tagline Only', 'wp-rig' ),
+					'none'          => __( 'Hide Title & Tagline', 'wp-rig' ),
+				),
+			)
+		);
 
 		/**
 		 * Theme options.
 		 */
 		$wp_customize->add_section(
 			'theme_options',
-			[
+			array(
 				'title'    => __( 'Theme Options', 'wp-rig' ),
 				'priority' => 130, // Before Additional CSS.
-			]
+			)
 		);
 	}
 
@@ -87,7 +113,7 @@ class Component implements Component_Interface {
 		wp_enqueue_script(
 			'wp-rig-customizer',
 			get_theme_file_uri( '/assets/js/customizer.min.js' ),
-			[ 'customize-preview' ],
+			array( 'customize-preview' ),
 			wp_rig()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
 			true
 		);

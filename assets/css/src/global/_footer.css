@@ -1,0 +1,38 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-colophon {
+	padding: 4em 0;
+	font-family: var(--highlight-font-family);
+	font-stretch: condensed;
+	font-size: 14px;
+}
+
+.colophon-info {
+	justify-content: center;
+}
+
+.site-info {
+	text-align: center;
+}
+
+.footer-section {
+	padding: 3rem 2rem;
+}
+
+.footer-section .widget_wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-upper {
+	background-color: var(--color-theme-grey-light);
+}
+
+@media (--tablet-up) {
+
+	.footer-upper .widget_wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+}

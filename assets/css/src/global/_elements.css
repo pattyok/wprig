@@ -1,5 +1,3 @@
-@import "_custom-properties.css";
-
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -23,6 +21,7 @@ html {
 /* stylelint-disable */
 body {
 	background: #fff;
+
 	/* Fallback for when there is no custom background color defined. */
 }
 /* stylelint-enable */
@@ -55,6 +54,17 @@ li > ol {
 	margin-left: 1.5em;
 }
 
+ul.list-inline {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-inline li {
+	margin-left: 15px;
+}
+
 dt {
 	font-weight: 700;
 }
@@ -80,3 +90,5 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+

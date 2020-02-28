@@ -6,37 +6,52 @@
  **/
 
 :root {
-	--global-font-color: #333;
-	--global-font-family: "Crimson Text", serif;
-	--global-font-size: 20;
+	--global-font-color: #545454;
+	--global-font-family: "adobe-caslon-pro", serif;
+	--global-font-size: 18;
 	--global-font-line-height: 1.4;
-	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--content-width: 45rem;
+	--highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--form-field-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--content-width: 43.75rem;
 	--dropdown-symbol-width: 0.7em;
 
 	/* Custom editor colors */
-	--color-theme-primary: #e36d60;
-	--color-theme-secondary: #41848f;
+	--color-theme-primary: #545454;
+	--color-theme-secondary: #ddd;
 	--color-theme-red: #c0392b;
+	--color-theme-red-light: #e8b7b1;
 	--color-theme-green: #27ae60;
 	--color-theme-blue: #2980b9;
 	--color-theme-yellow: #f1c40f;
 	--color-theme-black: #1c2833;
-	--color-theme-grey: #95a5a6;
-	--color-theme-white: #ecf0f1;
+
+	--color-theme-grey-light: #ddd;
+	--color-theme-grey-med-light: #b6b6b6;
+	--color-theme-grey: #979797;
+	--color-theme-grey-med-dark: #717171;
+	--color-theme-grey-dark: #545454;
+	--color-theme-white: #fff;
 	--color-custom-daylight: #97c0b7;
 	--color-custom-sun: #eee9d1;
 
 	--color-link: #0073aa;
-	--color-link-visited: #333;
+	--color-link-visited: #0073aa;
 	--color-link-active: #00a0d2;
 
 	--color-quote-border: #000;
 	--color-quote-citation: #6c7781;
+	--color-border: #a6a6a6;
 
 	/* Custom editor font sizes */
 	--font-size-small: calc(16 / var(--global-font-size) * 1rem);
 	--font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
 	--font-size-large: calc(36 / var(--global-font-size) * 1rem);
 	--font-size-larger: calc(48 / var(--global-font-size) * 1rem);
+
+
+	/* Heading font sizes */
+	--font-size-h1: 4.5rem;
+	--font-size-h2: 3rem;
+	--font-size-h3: 1.5rem;
+	--font-size-h4: 1.25rem;
 }

@@ -1,1 +1,15 @@
-{}
+{
+  "theme": {
+    "slug": "carkeek",
+    "name": "Carkeek Theme",
+    "author": "Patty O'Hara"
+  },
+  "dev": {
+    "browserSync": {
+      "live": true,
+      "proxyURL": "carkeek-theme.local",
+      "bypassPort": "3000",
+      "https": false
+    }
+  }
+}

@@ -17,7 +17,7 @@ import { pipeline } from 'mississippi';
 /**
  * Internal dependencies
  */
-import { rootPath, paths, gulpPlugins, isProd } from './constants';
+import { rootPath, paths, gulpPlugins, isProd, assetsDir } from './constants';
 import {
 	getThemeConfig,
 	getStringReplacementTasks,
@@ -117,9 +117,27 @@ export function stylesAfterReplacementStream() {
 		gulpPlugins.rename( {
 			suffix: '.min',
 		} ),
+		gulpPlugins.if(
+			isProd,
+			writeToManifest()
+		),
 		server.stream( { match: '**/*.css' } ),
+
 	] );
 }
+
+export function writeToManifest() {
+	return pipeline.obj( [
+		gulpPlugins.rev(),
+		dest(paths.styles.dest),
+		gulpPlugins.rev.manifest( {
+			base: assetsDir,
+			merge: true
+		}),
+		dest(assetsDir),
+	]);
+}
+
 
 /**
 * CSS via PostCSS + CSSNext (includes Autoprefixer by default).

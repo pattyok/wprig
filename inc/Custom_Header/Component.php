@@ -36,7 +36,7 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'after_setup_theme', [ $this, 'action_add_custom_header_support' ] );
+		add_action( 'after_setup_theme', array( $this, 'action_add_custom_header_support' ) );
 	}
 
 	/**
@@ -47,14 +47,14 @@ class Component implements Component_Interface {
 			'custom-header',
 			apply_filters(
 				'wp_rig_custom_header_args',
-				[
+				array(
 					'default-image'      => '',
 					'default-text-color' => '000000',
 					'width'              => 1600,
 					'height'             => 250,
 					'flex-height'        => true,
-					'wp-head-callback'   => [ $this, 'wp_head_callback' ],
-				]
+					'wp-head-callback'   => array( $this, 'wp_head_callback' ),
+				)
 			)
 		);
 	}
@@ -63,17 +63,25 @@ class Component implements Component_Interface {
 	 * Outputs extra styles for the custom header, if necessary.
 	 */
 	public function wp_head_callback() {
-		$header_text_color = get_header_textcolor();
+		$header_text_color     = get_header_textcolor();
+		$title_tagline_display = get_theme_mod( 'title_tagline_display' );
+		$styles                = '';
 
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return;
-		}
-
-		if ( ! display_header_text() ) {
+		if ( 'none' === $title_tagline_display ) {
 			echo '<style type="text/css">.site-title, .site-description { position: absolute; clip: rect(1px, 1px, 1px, 1px); }</style>';
 			return;
 		}
 
-		echo '<style type="text/css">.site-title a, .site-description { color: #' . esc_attr( $header_text_color ) . '; }</style>';
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) !== $header_text_color ) {
+			$styles = '.site-title a, .site-description { color: #' . esc_attr( $header_text_color ) . '; }';
+		}
+
+		if ( 'title_only' === $title_tagline_display ) {
+			$styles .= '.site-description { position: absolute; clip: rect(1px, 1px, 1px, 1px); }';
+		} elseif ( 'tagline_only' === $title_tagline_display ) {
+			$styles .= '.site-title { position: absolute; clip: rect(1px, 1px, 1px, 1px); }';
+		}
+
+		echo '<style type="text/css">' . esc_attr( $styles ) . '</style>';
 	}
 }

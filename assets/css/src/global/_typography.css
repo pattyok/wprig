@@ -1,5 +1,3 @@
-@import "_custom-properties.css";
-
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -17,16 +15,35 @@ textarea {
 }
 /* stylelint-enable */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
 	clear: both;
+	font-size: var(--font-size-h1);
 }
+
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.375;
+	font-weight: 400;
+	margin: 0 0 1.25rem;
+}
+
+h2 {
+	line-height: 1.15;
+	font-size: var(--font-size-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+}
+
+h4 {
+	font-size: var(--font-size-h4);
+}
+
 
 .entry-header h1.entry-title,
 .page-header .page-title {

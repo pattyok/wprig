@@ -16,7 +16,7 @@
 # Imports
 --------------------------------------------------------------*/
 @import "_blocks.css";
-@import "_media.css";
+@import "global/_media.css";
 
 /*--------------------------------------------------------------
 # Post and page content
@@ -52,12 +52,6 @@
 	margin: 0 auto;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-content > *,
 .entry-content > *,
 .entry-summary > * {
@@ -81,7 +75,7 @@
 	max-width: var(--content-width);
 }
 
-@media (--content-query) {
+@media (--desktop-up) {
 
 	.page-content > *,
 	.entry-content > *,
@@ -161,8 +155,12 @@
 	margin-right: auto;
 }
 
-.alignwide {
-	max-width: calc(50% + var(--content-width) / 2);
+@media (--desktop-up) {
+
+	.alignwide,
+	.is-style-wide {
+		max-width: calc(50% + var(--content-width) / 2);
+	}
 }
 
 .alignfull {
@@ -181,6 +179,7 @@
 
 .has-theme-primary-background-color {
 	background-color: var(--color-theme-primary);
+	color: var(--color-theme-white) l;
 }
 
 .has-theme-secondary-color,
@@ -191,6 +190,34 @@
 .has-theme-secondary-background-color {
 	background-color: var(--color-theme-secondary);
 }
+
+.has-theme-grey-med-light-color,
+.has-theme-grey-med-light-color a {
+	color: var(--color-theme-grey-med-light);
+}
+
+.has-theme-grey-med-light-background-color {
+	background-color: var(--color-theme-grey-med-light);
+}
+
+.has-theme-grey-color,
+.has-theme-grey-color a {
+	color: var(--color-theme-grey);
+}
+
+.has-theme-grey-background-color {
+	background-color: var(--color-theme-grey);
+}
+
+.has-theme-grey-med-dark-color,
+.has-theme-grey-med-dark-color a {
+	color: var(--color-theme-grey-med-dark);
+}
+
+.has-theme-grey-med-dark-background-color {
+	background-color: var(--color-theme-grey-med-dark);
+}
+
 
 .has-theme-red-color,
 .has-theme-red-color a {
@@ -235,15 +262,7 @@
 
 .has-theme-black-background-color {
 	background-color: var(--color-theme-black);
-}
-
-.has-theme-grey-color,
-.has-theme-grey-color a {
-	color: var(--color-theme-grey);
-}
-
-.has-theme-grey-background-color {
-	background-color: var(--color-theme-grey);
+	color: var(--color-theme-white);
 }
 
 .has-theme-white-color,

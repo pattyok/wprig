@@ -27,8 +27,8 @@
       }
     },
     "debug": {
-      "styles": false,
-      "scripts": false,
+      "styles": true,
+      "scripts": true,
       "phpcs": true
     }
   },
@@ -38,7 +38,8 @@
     "filesToCopy": [
       "LICENSE",
       "readme.txt",
-      "screenshot.png"
+      "screenshot.png",
+      "assets/fonts/**"
     ]
   }
 }

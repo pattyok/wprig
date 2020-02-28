@@ -9,20 +9,26 @@ namespace WP_Rig\WP_Rig;
 
 ?>
 
-<div class="site-info">
-	<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wp-rig' ) ); ?>">
-		<?php
-		/* translators: %s: CMS name, i.e. WordPress. */
-		printf( esc_html__( 'Proudly powered by %s', 'wp-rig' ), 'WordPress' );
-		?>
-	</a>
-	<span class="sep"> | </span>
-	<?php
-	/* translators: Theme name. */
-	printf( esc_html__( 'Theme: %s by the contributors.', 'wp-rig' ), '<a href="' . esc_url( 'https://github.com/wprig/wprig/' ) . '">WP Rig</a>' );
-
-	if ( function_exists( 'the_privacy_policy_link' ) ) {
-		the_privacy_policy_link( '<span class="sep"> | </span>' );
-	}
-	?>
-</div><!-- .site-info -->
+<footer class="footer-main">
+	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) { ?>
+		<section class="footer-section footer-upper">
+			<div class="widget_wrapper">
+				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+			</div>
+		</section>
+		<section class="footer-section footer-lower">
+			<div class="widget_wrapper">
+				<?php dynamic_sidebar( 'sidebar-footer-lower' ); ?>
+			</div>
+		</section>
+	<?php } ?>
+		<section class="footer-colophon">
+			<div class="colophon">
+				<ul class="colophon-info list-inline">
+					<li class="copyright">&copy; <?php echo esc_attr( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?> All Rights Reserved</li>
+					<li class="contact-info left">Design: <a href="http://beansnrice.com" target="_blank">Beans n' Rice</a></li>
+					<li class="contact-info">Development: <a href="http://carkeekstudios.com"  target="_blank">Carkeek Studios</a></li>
+				</ul>
+			</div>
+		</section>
+</footer>

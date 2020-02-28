@@ -1,5 +1,3 @@
-@import "_custom-properties.css";
-
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
@@ -26,4 +24,19 @@ a:focus {
 a:hover,
 a:active {
 	outline: 0;
+}
+
+.arrow-link > a {
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--global-font-color);
+}
+
+.arrow-link > a:hover,
+.arrow-link > a:active {
+	color: var(--color-link-active);
+}
+
+.arrow-link > a::after {
+	content: " \203A";
 }

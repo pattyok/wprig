@@ -72,10 +72,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'action_enqueue_styles' ] );
-		add_action( 'wp_head', [ $this, 'action_preload_styles' ] );
-		add_action( 'after_setup_theme', [ $this, 'action_add_editor_styles' ] );
-		add_filter( 'wp_resource_hints', [ $this, 'filter_resource_hints' ], 10, 2 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_styles' ) );
+		add_action( 'wp_head', array( $this, 'action_preload_styles' ) );
+		add_action( 'after_setup_theme', array( $this, 'action_add_editor_styles' ) );
+		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}
 
 	/**
@@ -86,9 +86,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               adding support for further arguments in the future.
 	 */
 	public function template_tags() : array {
-		return [
-			'print_styles' => [ $this, 'print_styles' ],
-		];
+		return array(
+			'print_styles' => array( $this, 'print_styles' ),
+		);
 	}
 
 	/**
@@ -101,7 +101,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		// Enqueue Google Fonts.
 		$google_fonts_url = $this->get_google_fonts_url();
 		if ( ! empty( $google_fonts_url ) ) {
-			wp_enqueue_style( 'wp-rig-fonts', $google_fonts_url, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			wp_enqueue_style( 'wp-rig-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		}
+
+		// Enqueue Typekit fonts if using.
+		$typekit_fonts_url = $this->get_typekit_fonts_url();
+		if ( ! empty( $typekit_fonts_url ) ) {
+			wp_enqueue_style( 'wp-rig-typekit', $typekit_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		}
 
 		$css_uri = get_theme_file_uri( '/assets/css/' );
@@ -111,18 +117,18 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$css_files = $this->get_css_files();
 		foreach ( $css_files as $handle => $data ) {
-			$src     = $css_uri . $data['file'];
+			//$src     = $css_uri . $data['file'];
 			$version = wp_rig()->get_asset_version( $css_dir . $data['file'] );
-
+			$asset   = $css_uri . wp_rig()->get_asset_path( $data['file'] );
 			/*
 			 * Enqueue global stylesheets immediately and register the other ones for later use
 			 * (unless preloading stylesheets is disabled, in which case stylesheets should be immediately
 			 * enqueued based on whether they are necessary for the page content).
 			 */
 			if ( $data['global'] || ! $preloading_styles_enabled && is_callable( $data['preload_callback'] ) && call_user_func( $data['preload_callback'] ) ) {
-				wp_enqueue_style( $handle, $src, [], $version, $data['media'] );
+				wp_enqueue_style( $handle, $asset, array(), $version, $data['media'] );
 			} else {
-				wp_register_style( $handle, $src, [], $version, $data['media'] );
+				wp_register_style( $handle, $asset, array(), $version, $data['media'] );
 			}
 
 			wp_style_add_data( $handle, 'precache', true );
@@ -184,6 +190,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			add_editor_style( $this->get_google_fonts_url() );
 		}
 
+		// Enqueue Typekit fonts if using.
+		$typekit_fonts_url = $this->get_typekit_fonts_url();
+		if ( ! empty( $typekit_fonts_url ) ) {
+			wp_enqueue_style( 'wp-rig-typekit', $typekit_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		}
+
 		// Enqueue block editor stylesheet.
 		add_editor_style( 'assets/css/editor/editor-styles.min.css' );
 	}
@@ -197,10 +209,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function filter_resource_hints( array $urls, string $relation_type ) : array {
 		if ( 'preconnect' === $relation_type && wp_style_is( 'wp-rig-fonts', 'queue' ) ) {
-			$urls[] = [
+			$urls[] = array(
 				'href' => 'https://fonts.gstatic.com',
 				'crossorigin',
-			];
+			);
 		}
 
 		return $urls;
@@ -276,41 +288,41 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->css_files;
 		}
 
-		$css_files = [
-			'wp-rig-global'     => [
+		$css_files = array(
+			'wp-rig-global'     => array(
 				'file'   => 'global.min.css',
 				'global' => true,
-			],
-			'wp-rig-comments'   => [
+			),
+			'wp-rig-comments'   => array(
 				'file'             => 'comments.min.css',
 				'preload_callback' => function() {
 					return ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() );
 				},
-			],
-			'wp-rig-content'    => [
+			),
+			'wp-rig-content'    => array(
 				'file'             => 'content.min.css',
 				'preload_callback' => '__return_true',
-			],
-			'wp-rig-sidebar'    => [
+			),
+			'wp-rig-sidebar'    => array(
 				'file'             => 'sidebar.min.css',
 				'preload_callback' => function() {
 					return wp_rig()->is_primary_sidebar_active();
 				},
-			],
-			'wp-rig-widgets'    => [
+			),
+			'wp-rig-widgets'    => array(
 				'file'             => 'widgets.min.css',
 				'preload_callback' => function() {
 					return wp_rig()->is_primary_sidebar_active();
 				},
-			],
-			'wp-rig-front-page' => [
-				'file' => 'front-page.min.css',
+			),
+			'wp-rig-front-page' => array(
+				'file'             => 'front-page.min.css',
 				'preload_callback' => function() {
 					global $template;
 					return 'front-page.php' === basename( $template );
 				},
-			],
-		];
+			),
+		);
 
 		/**
 		 * Filters default CSS files.
@@ -323,10 +335,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 */
 		$css_files = apply_filters( 'wp_rig_css_files', $css_files );
 
-		$this->css_files = [];
+		$this->css_files = array();
 		foreach ( $css_files as $handle => $data ) {
 			if ( is_string( $data ) ) {
-				$data = [ 'file' => $data ];
+				$data = array( 'file' => $data );
 			}
 
 			if ( empty( $data['file'] ) ) {
@@ -334,11 +346,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 
 			$this->css_files[ $handle ] = array_merge(
-				[
+				array(
 					'global'           => false,
 					'preload_callback' => null,
 					'media'            => 'all',
-				],
+				),
 				$data
 			);
 		}
@@ -356,10 +368,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $this->google_fonts;
 		}
 
-		$google_fonts = [
-			'Roboto Condensed' => [ '400', '400i', '700', '700i' ],
-			'Crimson Text'     => [ '400', '400i', '600', '600i' ],
-		];
+		$google_fonts = array(
+			'Open Sans' => array( '400', '400i', '700', '700i' ),
+		);
 
 		/**
 		 * Filters default Google Fonts.
@@ -385,7 +396,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return '';
 		}
 
-		$font_families = [];
+		$font_families = array();
 
 		foreach ( $google_fonts as $font_name => $font_variants ) {
 			if ( ! empty( $font_variants ) ) {
@@ -400,11 +411,22 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$font_families[] = $font_name;
 		}
 
-		$query_args = [
+		$query_args = array(
 			'family'  => implode( '|', $font_families ),
 			'display' => 'swap',
-		];
+		);
 
 		return add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	/**
+	 * Returns the Typekit URL to use for enqueuing.
+	 *
+	 * If not using just empty the string.
+	 *
+	 * @return string Google Fonts URL, or empty string if no Google Fonts should be used.
+	 */
+	protected function get_typekit_fonts_url() : string {
+		return 'https://use.typekit.net/okb4hxj.css';
 	}
 }
