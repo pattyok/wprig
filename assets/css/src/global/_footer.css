@@ -8,8 +8,12 @@
 	font-size: 14px;
 }
 
-.colophon-info {
-	justify-content: center;
+.colophon {
+	text-align: center;
+}
+
+.colophon-info li {
+	padding-bottom: 5px;
 }
 
 .site-info {
@@ -34,5 +38,23 @@
 	.footer-upper .widget_wrapper {
 		display: flex;
 		flex-direction: column;
+	}
+}
+
+@media (--desktop-up) {
+
+	.colophon-info {
+		display: flex;
+		justify-content: center;
+	}
+
+	.colophon-info li {
+		padding: 0;
+	}
+
+	.colophon-info .site-credits {
+		margin-left: 10px;
+		padding-left: 10px;
+		border-left: 1px solid var(--color-theme-grey);
 	}
 }

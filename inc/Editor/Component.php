@@ -44,6 +44,9 @@ class Component implements Component_Interface {
 		// Add support for default block styles.
 		add_theme_support( 'wp-block-styles' );
 
+		// Add support for responsive embeds.
+		add_theme_support( 'responsive-embeds' );
+
 		// Add support for wide-aligned images.
 		add_theme_support( 'align-wide' );
 
@@ -57,7 +60,7 @@ class Component implements Component_Interface {
 		 *
 		 * Add the line below to disable the custom color picker in the editor.
 		 * add_theme_support( 'disable-custom-colors' );
-		 * 	--color-theme-black: #1c2833;
+		 * --color-theme-black: #1c2833;
 		 */
 		add_theme_support(
 			'editor-color-palette',

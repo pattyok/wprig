@@ -152,6 +152,7 @@ class Theme {
 			new Post_Thumbnails\Component(),
 			new Customizer\Component(),
 			new Styles\Component(),
+			new Scripts\Component(),
 		);
 
 		if ( defined( 'JETPACK__VERSION' ) ) {

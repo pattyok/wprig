@@ -117,9 +117,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$css_files = $this->get_css_files();
 		foreach ( $css_files as $handle => $data ) {
-			//$src     = $css_uri . $data['file'];
+			// $src     = $css_uri . $data['file'];
 			$version = wp_rig()->get_asset_version( $css_dir . $data['file'] );
 			$asset   = $css_uri . wp_rig()->get_asset_path( $data['file'] );
+
 			/*
 			 * Enqueue global stylesheets immediately and register the other ones for later use
 			 * (unless preloading stylesheets is disabled, in which case stylesheets should be immediately

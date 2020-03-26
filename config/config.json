@@ -1,6 +1,6 @@
 {
   "theme": {
-    "slug": "carkeek",
+    "slug": "carkeek-theme",
     "name": "Carkeek Theme",
     "author": "Patty O'Hara"
   },
@@ -9,7 +9,9 @@
       "live": true,
       "proxyURL": "carkeek-theme.local",
       "bypassPort": "3000",
-      "https": false
+      "https": true,
+      "certPath": "/Users/pattyohara/Sites/BrowserSync/wp-rig-browser-sync-cert.crt",
+      "keyPath": "/Users/pattyohara/Sites/BrowserSync/wp-rig-browser-sync-key.key"
     }
   }
 }

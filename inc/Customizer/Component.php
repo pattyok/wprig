@@ -68,7 +68,7 @@ class Component implements Component_Interface {
 			);
 		}
 
-		// replace title_tagline with multiple options
+		// replace title_tagline with multiple options.
 		$wp_customize->remove_control( 'display_header_text' );
 
 		$wp_customize->add_setting(

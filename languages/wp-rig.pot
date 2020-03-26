@@ -93,83 +93,79 @@ msgstr ""
 msgid "New comment(s)"
 msgstr ""
 
-#: inc/Customizer/Component.php:77
+#: inc/Customizer/Component.php:89
+msgid "Display Title & Tagline"
+msgstr ""
+
+#: inc/Customizer/Component.php:90
+msgid "Display Title Only"
+msgstr ""
+
+#: inc/Customizer/Component.php:91
+msgid "Display Tagline Only"
+msgstr ""
+
+#: inc/Customizer/Component.php:92
+msgid "Hide Title & Tagline"
+msgstr ""
+
+#: inc/Customizer/Component.php:103
 msgid "Theme Options"
 msgstr ""
 
-#: inc/Editor/Component.php:65, inc/Nav_Menus/Component.php:68
+#: inc/Editor/Component.php:69, inc/Nav_Menus/Component.php:68
 msgid "Primary"
 msgstr ""
 
-#: inc/Editor/Component.php:70
+#: inc/Editor/Component.php:74
 msgid "Secondary"
 msgstr ""
 
-#: inc/Editor/Component.php:75
-msgid "Red"
+#: inc/Editor/Component.php:79
+msgid "Grey Med Light"
 msgstr ""
 
-#: inc/Editor/Component.php:80
-msgid "Green"
-msgstr ""
-
-#: inc/Editor/Component.php:85
-msgid "Blue"
-msgstr ""
-
-#: inc/Editor/Component.php:90
-msgid "Yellow"
-msgstr ""
-
-#: inc/Editor/Component.php:95
-msgid "Black"
-msgstr ""
-
-#: inc/Editor/Component.php:100
+#: inc/Editor/Component.php:84
 msgid "Grey"
 msgstr ""
 
-#: inc/Editor/Component.php:105
+#: inc/Editor/Component.php:89
+msgid "Grey Med Dark"
+msgstr ""
+
+#: inc/Editor/Component.php:94
 msgid "White"
 msgstr ""
 
-#: inc/Editor/Component.php:110
-msgid "Dusty daylight"
-msgstr ""
-
-#: inc/Editor/Component.php:115
-msgid "Dusty sun"
-msgstr ""
-
-#: inc/Editor/Component.php:132
+#: inc/Editor/Component.php:111
 msgid "Small"
 msgstr ""
 
-#: inc/Editor/Component.php:133
+#: inc/Editor/Component.php:112
 msgid "S"
 msgstr ""
 
-#: inc/Editor/Component.php:138
+#: inc/Editor/Component.php:117
 msgid "Medium"
 msgstr ""
 
-#: inc/Editor/Component.php:139
+#: inc/Editor/Component.php:118
 msgid "M"
 msgstr ""
 
-#: inc/Editor/Component.php:144
+#: inc/Editor/Component.php:123
 msgid "Large"
 msgstr ""
 
-#: inc/Editor/Component.php:145
+#: inc/Editor/Component.php:124
 msgid "L"
 msgstr ""
 
-#: inc/Editor/Component.php:150
+#: inc/Editor/Component.php:129
 msgid "Larger"
 msgstr ""
 
-#: inc/Editor/Component.php:151
+#: inc/Editor/Component.php:130
 msgid "XL"
 msgstr ""
 
@@ -189,16 +185,32 @@ msgstr ""
 msgid "Lazy-loading images means images are loaded only when they are in view. Improves performance, but can result in content jumping around on slower connections."
 msgstr ""
 
-#: inc/Sidebars/Component.php:69
-msgid "Sidebar"
+#: inc/Sidebars/Component.php:71
+msgid "Sidebar Hello"
 msgstr ""
 
-#: inc/Sidebars/Component.php:71
+#: inc/Sidebars/Component.php:73
 msgid "Add widgets here."
 msgstr ""
 
+#: inc/Sidebars/Component.php:82
+msgid "Footer Upper"
+msgstr ""
+
+#: inc/Sidebars/Component.php:84
+msgid "Footer Widgets, will stack vertically"
+msgstr ""
+
+#: inc/Sidebars/Component.php:93
+msgid "Footer Lower"
+msgstr ""
+
+#: inc/Sidebars/Component.php:95
+msgid "Footer Widgets, will layout horizontally"
+msgstr ""
+
 #. translators: %s: stylesheet handle
-#: inc/Styles/Component.php:235
+#: inc/Styles/Component.php:248
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
@@ -343,20 +355,6 @@ msgstr ""
 
 #: template-parts/content/pagination.php:15
 msgid "Page navigation"
-msgstr ""
-
-#: template-parts/footer/info.php:13
-msgid "https://wordpress.org/"
-msgstr ""
-
-#. translators: %s: CMS name, i.e. WordPress.
-#: template-parts/footer/info.php:16
-msgid "Proudly powered by %s"
-msgstr ""
-
-#. translators: Theme name.
-#: template-parts/footer/info.php:22
-msgid "Theme: %s by the contributors."
 msgstr ""
 
 #: template-parts/header/navigation.php:16

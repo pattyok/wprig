@@ -13,7 +13,7 @@ textarea {
 	font-size: var(--font-size-regular);
 	line-height: var(--global-font-line-height);
 }
-/* stylelint-enable */
+
 
 h1 {
 	font-family: var(--highlight-font-family);
@@ -43,7 +43,7 @@ h3 {
 h4 {
 	font-size: var(--font-size-h4);
 }
-
+/* stylelint-enable */
 
 .entry-header h1.entry-title,
 .page-header .page-title {

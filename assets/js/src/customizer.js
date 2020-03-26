@@ -40,7 +40,7 @@
 					clip: 'auto',
 					position: 'relative',
 				} );
-			}else if ( 'title_tagline' === to ) {
+			} else if ( 'title_tagline' === to ) {
 				$( '.site-title, .site-description' ).css( {
 					clip: 'auto',
 					position: 'relative',
