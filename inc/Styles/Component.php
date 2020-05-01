@@ -370,7 +370,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-			'Open Sans' => array( '400', '400i', '700', '700i' ),
+			'Nanum Gothic' => array( '400', '700', '800' ),
+			'Nanum Myeongjo' => array( '400', '700', '800' ),
 		);
 
 		/**
@@ -428,6 +429,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Google Fonts URL, or empty string if no Google Fonts should be used.
 	 */
 	protected function get_typekit_fonts_url() : string {
-		return 'https://use.typekit.net/okb4hxj.css';
+		return '';
 	}
 }

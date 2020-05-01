@@ -6,6 +6,7 @@
  */
 import { src, dest } from 'gulp';
 import postcssPresetEnv from 'postcss-preset-env';
+import postcssNesting from 'postcss-nesting';
 import AtImport from 'postcss-import';
 import pump from 'pump';
 import cssnano from 'cssnano';
@@ -51,6 +52,7 @@ export function stylesAfterReplacementStream() {
 
 	const postcssPlugins = [
 		stylelint(),
+		postcssNesting(),
 		postcssPresetEnv( {
 			importFrom: (
 				configValueDefined( 'config.dev.styles.importFrom' ) ?

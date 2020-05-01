@@ -35,14 +35,6 @@
 
 @media (--tablet-up) {
 
-	.footer-upper .widget_wrapper {
-		display: flex;
-		flex-direction: column;
-	}
-}
-
-@media (--desktop-up) {
-
 	.colophon-info {
 		display: flex;
 		justify-content: center;
@@ -56,5 +48,22 @@
 		margin-left: 10px;
 		padding-left: 10px;
 		border-left: 1px solid var(--color-theme-grey);
+	}
+
+	.footer-upper {
+		padding: 4rem 2rem;
+	}
+
+	.footer-upper .widget_wrapper {
+		max-width: var(--content-width);
+		margin: 0 auto;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footer-section .gform_body {
+		max-width: 425px;
+		margin: 0 auto;
 	}
 }

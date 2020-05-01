@@ -49,6 +49,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_filter( 'embed_defaults', array( $this, 'filter_embed_dimensions' ) );
 		add_filter( 'theme_scandir_exclusions', array( $this, 'filter_scandir_exclusions_for_optional_templates' ) );
 		add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
+		add_filter( 'get_the_archive_title', array( $this, 'filter_archive_title' ), 10, 2 );
 	}
 
 	/**
@@ -215,7 +216,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Asset file path.
 	 */
 	public function get_asset_path( $filename ) {
-		$file      = basename( $filename );
+		$file = basename( $filename );
 		static $manifest;
 
 		if ( empty( $manifest ) ) {
@@ -229,5 +230,59 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return $file;
 		}
 	}
+
+
+	/**
+	 * Filters Title Tag in archives
+	 *
+	 * @param string $title    The archive title.
+	 * @return string Archive title stripped of excess words.
+	 */
+	public function filter_archive_title( $title ) {
+
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_year() ) {
+			$title = get_the_date( _x( 'Y', 'yearly archives date format', 'wp-rig' ) );
+		} elseif ( is_month() ) {
+			$title = get_the_date( _x( 'F Y', 'monthly archives date format', 'wp-rig' ) );
+		} elseif ( is_day() ) {
+			$title = get_the_date( _x( 'F j, Y', 'daily archives date format', 'wp-rig' ) );
+		} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = _x( 'Asides', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = _x( 'Galleries', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = _x( 'Images', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = _x( 'Videos', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = _x( 'Quotes', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = _x( 'Links', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = _x( 'Statuses', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = _x( 'Audio', 'post format archive title', 'wp-rig' );
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = _x( 'Chats', 'post format archive title', 'wp-rig' );
+			}
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		} elseif ( is_tax() ) {
+			$title = single_term_title( '', false );
+		} else {
+			$title = __( 'Archives', 'wp-rig' );
+		}
+		return $title;
+
+		return $tag;
+	}
+
 
 }

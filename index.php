@@ -25,13 +25,26 @@ wp_rig()->print_styles( 'wp-rig-content' );
 
 			get_template_part( 'template-parts/content/page_header' );
 
+			if ( ! is_singular() ) {
+				?>
+				<div class="archive-wrapper">
+				<?php
+			}
 			while ( have_posts() ) {
 				the_post();
 
-				get_template_part( 'template-parts/content/entry', get_post_type() );
+				if ( ! is_singular() ) {
+					get_template_part( 'template-parts/content/entry', get_post_type() );
+				} else {
+					get_template_part( 'template-parts/content/single', get_post_type() );
+				}
 			}
 
 			if ( ! is_singular() ) {
+				?>
+				<!-- end .archive-wrapper -->
+			</div>
+				<?php
 				get_template_part( 'template-parts/content/pagination' );
 			}
 		} else {

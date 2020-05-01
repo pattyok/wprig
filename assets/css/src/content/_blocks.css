@@ -1,0 +1,442 @@
+
+/*--------------------------------------------------------------
+## Blocks
+--------------------------------------------------------------*/
+
+/*
+ * Available block selectors:
+ * .wp-block-image
+ * .wp-block-media-text
+ * .wp-block-gallery
+ * .wp-block-audio
+ * .wp-block-video
+ * .wp-block-quote
+ * .wp-block-cover
+ * .wp-block-file
+ * .wp-block-button
+ * .wp-block-gallery
+ * .wp-block-table
+ * .wp-block-embed
+ * .wp-block-audio
+ * .wp-block-pullquote
+ * .wp-block-preformatted
+ * .wp-block-code
+ * .wp-block-verse
+ * .wp-block-table
+ * .wp-block-separator
+ * .wp-block-columns
+ * .wp-block-column
+ * .wp-block-latest-posts
+ * .wp-block-categories
+ * .wp-block-archives
+ */
+
+.wp-block-button__link {
+	border-radius: 0;
+	font-family: var(--form-field-font-family);
+	background-color: var(--color-theme-grey-med-dark);
+	font-weight: 700;
+	transition: all 0.5s ease;
+}
+
+.wp-block-button__link:hover {
+	background-color: var(--color-theme-grey-med-light);
+}
+
+.is-style-button-orange .wp-block-button__link {
+	background-color: #ffa500;
+}
+
+.is-style-arrow-cta .wp-block-button__link {
+	background-color: transparent;
+	font-family: var(--global-font-family);
+	color: var(--global-font-color);
+	font-weight: 600;
+	padding-left: 0;
+}
+
+.is-style-arrow-cta .wp-block-button__link::after {
+	content: "\203A";
+	padding-left: 5px;
+	transition: padding 0.3s linear;
+}
+
+.is-style-arrow-cta .wp-block-button__link:hover {
+	color: var(--color-theme-grey-med-light);
+}
+
+.is-style-arrow-cta .wp-block-button__link:hover::after {
+	content: "\203A";
+	padding-left: 7px;
+}
+
+.wp-block-group,
+.wp-block-group.has-background {
+	padding: 3rem 2rem;
+}
+
+@media (--tablet-up) {
+
+	.wp-block-group.alignfull .wp-block-group__inner-container {
+		max-width: var(--content-width);
+		padding: 0 1.5rem;
+	}
+
+	.wp-block-cover.header-image {
+		height: 550px;
+	}
+}
+
+@media (--desktop-up) {
+
+	.wp-block-group,
+	.wp-block-group.has-background {
+		padding: 7rem 0;
+	}
+
+	.wp-block-group.alignfull .wp-block-group__inner-container {
+		max-width: var(--content-width);
+		margin: 0 auto;
+		padding: 0;
+	}
+}
+
+
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+	margin: 1.5em auto;
+	padding: 0 1em;
+}
+
+.entry-content > .wp-block-quote,
+.entry-content > .wp-block-quote.is-style-large {
+	margin-left: 1.5rem;
+}
+
+@media (--content-query) {
+
+	.entry-content > .wp-block-quote,
+	.entry-content > .wp-block-quote.is-style-large {
+		margin-left: auto;
+	}
+}
+
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	border-left-color: var(--color-quote-border);
+}
+
+.wp-block-quote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer {
+	border-left-color: var(--color-quote-citation);
+}
+
+.wp-block-cover {
+	display: flex;
+	align-items: center;
+}
+
+.wp-block-cover__inner-container > * {
+	max-width: var(--content-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block-cover .wp-block-cover-text,
+.wp-block-cover p {
+	margin-top: 0;
+}
+
+/* Columns Block */
+
+@media (--desktop-up) {
+
+	.wp-block-column:not(:last-child),
+	.wp-block-column:nth-child(2n+1) {
+		margin-left: 0;
+	}
+
+	.wp-block-column:not(:first-child) {
+		margin-left: 36px;
+	}
+
+}
+
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	border: 1px solid hsl(0, 0%, 80%);
+}
+
+ul.wp-block-latest-posts.alignwide,
+ul.wp-block-latest-posts.alignfull,
+ul.wp-block-latest-posts.is-grid.alignwide,
+ul.wp-block-latest-posts.is-grid.alignfull {
+	padding: 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Gallery Block - overrides core styles
+--------------------------------------------------------------*/
+
+.wp-block-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 0.5em;
+}
+
+.wp-block-gallery:not(.components-placeholder) {
+	margin: 1.5em auto;
+}
+
+/* Override standard ul indentation. */
+
+.entry-content .wp-block-gallery {
+	padding-right: 1.5em;
+	padding-left: 1.5em;
+}
+
+@media screen and (min-width: 48em) {
+
+	.entry-content .wp-block-gallery {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.wp-block-gallery.columns-2 .blocks-gallery-item,
+.wp-block-gallery.columns-3 .blocks-gallery-item,
+.wp-block-gallery.columns-4 .blocks-gallery-item,
+.wp-block-gallery.columns-5 .blocks-gallery-item,
+.wp-block-gallery.columns-6 .blocks-gallery-item,
+.wp-block-gallery.columns-7 .blocks-gallery-item,
+.wp-block-gallery.columns-8 .blocks-gallery-item,
+.wp-block-gallery.columns-9 .blocks-gallery-item {
+	grid-column: span 1;
+	margin: 0;
+	width: inherit;
+}
+
+
+.blocks-gallery-item:last-child:nth-child(odd) {
+	grid-column: span 2;
+}
+
+@media screen and (min-width: 40em) {
+
+	.wp-block-gallery.columns-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.wp-block-gallery.columns-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.wp-block-gallery.columns-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.wp-block-gallery.columns-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	.wp-block-gallery.columns-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.wp-block-gallery.columns-7 {
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	.wp-block-gallery.columns-8 {
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	.wp-block-gallery.columns-9 {
+		grid-template-columns: repeat(9, 1fr);
+	}
+}
+
+
+.wp-block-separator {
+	border-bottom-color: var(--color-border);
+}
+
+/*--------------------------------------------------------------
+## Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	float: left;
+	margin-right: 1.5rem;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1.5rem;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (--desktop-up) {
+
+	.alignwide,
+	.is-style-wide {
+		max-width: calc(50% + var(--content-width) / 2);
+	}
+}
+
+.alignfull {
+	max-width: 100%;
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+## Custom block colors.
+--------------------------------------------------------------*/
+
+.has-theme-primary-color,
+.has-theme-primary-color a {
+	color: var(--color-theme-primary);
+}
+
+.has-theme-primary-background-color {
+	background-color: var(--color-theme-primary);
+	color: var(--color-theme-white) l;
+}
+
+.has-theme-secondary-color,
+.has-theme-secondary-color a {
+	color: var(--color-theme-secondary);
+}
+
+.has-theme-secondary-background-color {
+	background-color: var(--color-theme-secondary);
+}
+
+.has-theme-grey-med-light-color,
+.has-theme-grey-med-light-color a {
+	color: var(--color-theme-grey-med-light);
+}
+
+.has-theme-grey-med-light-background-color {
+	background-color: var(--color-theme-grey-med-light);
+}
+
+.has-theme-grey-color,
+.has-theme-grey-color a {
+	color: var(--color-theme-grey);
+}
+
+.has-theme-grey-background-color {
+	background-color: var(--color-theme-grey);
+}
+
+.has-theme-grey-med-dark-color,
+.has-theme-grey-med-dark-color a {
+	color: var(--color-theme-grey-med-dark);
+}
+
+.has-theme-grey-med-dark-background-color {
+	background-color: var(--color-theme-grey-med-dark);
+}
+
+
+.has-theme-red-color,
+.has-theme-red-color a {
+	color: var(--color-theme-red);
+}
+
+.has-theme-red-background-color {
+	background-color: var(--color-theme-red);
+}
+
+.has-theme-green-color,
+.has-theme-green-color a {
+	color: var(--color-theme-green);
+}
+
+.has-theme-green-background-color {
+	background-color: var(--color-theme-green);
+}
+
+.has-theme-blue-color,
+.has-theme-blue-color a {
+	color: var(--color-theme-blue);
+}
+
+.has-theme-blue-background-color {
+	background-color: var(--color-theme-blue);
+}
+
+.has-theme-yellow-color,
+.has-theme-yellow-color a {
+	color: var(--color-theme-yellow);
+}
+
+.has-theme-yellow-background-color {
+	background-color: var(--color-theme-yellow);
+}
+
+.has-theme-black-color,
+.has-theme-black-color a {
+	color: var(--color-theme-black);
+}
+
+.has-theme-black-background-color {
+	background-color: var(--color-theme-black);
+	color: var(--color-theme-white);
+}
+
+.has-theme-white-color,
+.has-theme-white-color a {
+	color: var(--color-theme-white);
+}
+
+.has-theme-white-background-color {
+	background-color: var(--color-theme-white);
+}
+
+.has-custom-daylight-color,
+.has-custom-daylight-color a {
+	color: var(--color-custom-daylight);
+}
+
+.has-custom-daylight-background-color {
+	background-color: var(--color-custom-daylight);
+}
+
+.has-custom-sun-color,
+.has-custom-sun-color a {
+	color: var(--color-custom-sun);
+}
+
+.has-custom-sun-background-color {
+	background-color: var(--color-custom-sun);
+}
+
+/*--------------------------------------------------------------
+## Custom block font sizes.
+--------------------------------------------------------------*/
+
+.has-small-font-size {
+	font-size: var(--font-size-small);
+}
+
+.has-regular-font-size {
+	font-size: var(--font-size-regular);
+}
+
+.has-large-font-size {
+	font-size: var(--font-size-large);
+}
+
+.has-larger-font-size {
+	font-size: var(--font-size-larger);
+}
+

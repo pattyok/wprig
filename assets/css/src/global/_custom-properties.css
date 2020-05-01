@@ -7,13 +7,16 @@
 
 :root {
 	--global-font-color: #545454;
-	--global-font-family: "adobe-caslon-pro", serif;
+	--global-font-family: "Nanum Myeongjo", serif;
 	--global-font-size: 18;
+	--global-font-size-small: 16;
 	--global-font-line-height: 1.4;
-	--highlight-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--form-field-font-family: "Open Sans", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--content-width: 43.75rem;
+	--highlight-font-family: "Nanum Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--form-field-font-family: "Nanum Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--content-width: 720px;
+	--header-width: 950px;
 	--dropdown-symbol-width: 0.7em;
+	--gutter-width: 1rem;
 
 	/* Custom editor colors */
 	--color-theme-primary: #545454;
@@ -28,7 +31,7 @@
 	--color-theme-grey-light: #ddd;
 	--color-theme-grey-med-light: #b6b6b6;
 	--color-theme-grey: #979797;
-	--color-theme-grey-med-dark: #717171;
+	--color-theme-grey-med-dark: #6e6d6d;
 	--color-theme-grey-dark: #545454;
 	--color-theme-white: #fff;
 	--color-custom-daylight: #97c0b7;

@@ -27,8 +27,8 @@ use function dynamic_sidebar;
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
-	const PRIMARY_SIDEBAR_SLUG = 'sidebar-1';
-	const FOOTER_SIDEBAR_SLUG = 'sidebar-footer';
+	const PRIMARY_SIDEBAR_SLUG      = 'sidebar-1';
+	const FOOTER_SIDEBAR_SLUG       = 'sidebar-footer';
 	const FOOTER_LOWER_SIDEBAR_SLUG = 'sidebar-footer-lower';
 
 	/**
@@ -66,17 +66,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Registers the sidebars.
 	 */
 	public function action_register_sidebars() {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Sidebar Hello', 'wp-rig' ),
-				'id'            => static::PRIMARY_SIDEBAR_SLUG,
-				'description'   => esc_html__( 'Add widgets here.', 'wp-rig' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-		);
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Upper', 'wp-rig' ),

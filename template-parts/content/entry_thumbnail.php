@@ -23,7 +23,7 @@ if ( post_password_required() || ! post_type_supports( $support_slug, 'thumbnail
 
 if ( is_singular( get_post_type() ) ) {
 	?>
-	<div class="post-thumbnail">
+	<div class="post-thumbnail testing">
 		<?php the_post_thumbnail( 'wp-rig-featured', array( 'class' => 'skip-lazy' ) ); ?>
 	</div><!-- .post-thumbnail -->
 	<?php

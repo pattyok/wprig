@@ -4,6 +4,8 @@
 /* stylelint-disable */
 a {
 	color: var(--color-link);
+	text-decoration: none;
+	transition: all 0.2s ease-in;
 }
 /* stylelint-enable */
 

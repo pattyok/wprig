@@ -2,18 +2,6 @@
  * Custom styles for the front-page.php template.
  */
 
-.site {
-	display: grid;
-	grid-template-columns: 1fr;
-}
-
-.site-main {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
-	grid-auto-flow: dense;
-	grid-gap: 2rem;
-}
-
 .post {
 	margin-bottom: 0;
 	padding: 0 2rem;

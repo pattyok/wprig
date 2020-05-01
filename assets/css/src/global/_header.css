@@ -12,7 +12,7 @@
 }
 
 .custom-logo-link {
-	display: inline-block;
+	display: block;
 	margin: 0 auto;
 }
 
@@ -24,11 +24,11 @@
 
 .site-title {
 	margin: 0;
-	font-stretch: condensed;
 	font-size: 38px;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 1.2;
 	color: #333332;
+	text-transform: uppercase;
 	white-space: nowrap;
 }
 
@@ -47,15 +47,32 @@
 	color: #757575;
 }
 
+.top-navigation {
+	width: 100%;
+	text-align: right;
+	padding-left: var(--gutter-width);
+	padding-right: var(--gutter-width);
+}
+
 @media (--tablet-up) {
 
 	.site-header {
+		border-bottom: 1px solid var(--color-theme-grey);
+	}
+
+	.site-header--inner {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		max-width: var(--header-width);
+		margin: 0 auto;
 	}
 
 	.site-branding {
-		padding: 2rem 0;
+		padding: 1rem 0;
+		width: 33%;
+		max-width: 350px;
+		margin: 0;
 	}
 }

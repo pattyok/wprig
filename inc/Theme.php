@@ -153,6 +153,7 @@ class Theme {
 			new Customizer\Component(),
 			new Styles\Component(),
 			new Scripts\Component(),
+			new Blocks\Component(),
 		);
 
 		if ( defined( 'JETPACK__VERSION' ) ) {
