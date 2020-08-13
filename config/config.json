@@ -13,5 +13,16 @@
       "certPath": "/Users/pattyohara/Sites/BrowserSync/wp-rig-browser-sync-cert.crt",
       "keyPath": "/Users/pattyohara/Sites/BrowserSync/wp-rig-browser-sync-key.key"
     }
+  },
+  "export": {
+    "compress": true,
+    "generatePotFile": false,
+    "filesToCopy": [
+      "LICENSE",
+      "readme.txt",
+      "assets/fonts/**",
+      "acf-json/**",
+      "screenshot.png"
+    ]
   }
 }

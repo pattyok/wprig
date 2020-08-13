@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
 .footer-colophon {
 	padding: 4em 0;
 	font-family: var(--highlight-font-family);
@@ -55,7 +56,7 @@
 	}
 
 	.footer-upper .widget_wrapper {
-		max-width: var(--content-width);
+		max-width: var(--content-width-narrow);
 		margin: 0 auto;
 		text-align: center;
 		display: flex;

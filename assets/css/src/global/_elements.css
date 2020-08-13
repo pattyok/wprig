@@ -21,19 +21,19 @@ html {
 /* stylelint-disable */
 body {
 	background: #fff;
-
-	/* Fallback for when there is no custom background color defined. */
 }
 /* stylelint-enable */
 
 /* stylelint-disable */
 hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
 	margin-bottom: 1.5em;
+	box-sizing: border-box;
+	height: 1px;
+	display: block;
+	border-color: var(--border-color);
 }
 /* stylelint-enable */
+
 
 ul,
 ol {
@@ -90,4 +90,11 @@ table {
 p {
 	margin-bottom: 1.5rem;
 }
+
+/* stylelint-disable */
+b,
+strong {
+	font-weight: var(--font-weight-bold);
+}
+/* stylelint-enable */
 

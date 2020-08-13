@@ -28,7 +28,7 @@ namespace WP_Rig\WP_Rig;
 			<div class="colophon">
 				<ul class="colophon-info no-list">
 					<li class="copyright">&copy; <?php echo esc_attr( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?> All Rights Reserved</li>
-					<li class="site-credits"><a class="info-popover" data-popover="site-credit-pop">Site Credits</a>
+					<li class="site-credits"><a class="info-popover" href="#" data-popover="site-credit-pop">Site Credits</a>
 						<div class="gpopover no-list" id="site-credit-pop">
 							<ul class="no-list">
 								<li class="contact-info">Design: <a href="http://beansnrice.com" target="_blank">Beans n' Rice</a></li>

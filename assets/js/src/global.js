@@ -4,7 +4,7 @@
 
 		$( '.wp-block-ck-custom_posttype__list.is-grid .wp-block-ck-custom_posttype__content-wrap' ).each( function() {
 			const height = $( this ).outerHeight();
-			if ( w > 1080 ) {
+			if ( w > 1024 ) {
 				$( this ).css( 'bottom', -height );
 			} else {
 				$( this ).css( 'bottom', 0 );
@@ -24,4 +24,6 @@
 	$( document ).ready( function() {
 		portfolioBlockSize();
 	} );
+
+	$( '.info-popover' ).gpopover();
 }( jQuery ) );

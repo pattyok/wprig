@@ -32,6 +32,8 @@
 !.editorconfig
 !.eslintignore
 !.eslintrc.json
+!.stylintignore
+!.styllintrc.json
 !.gitignore
 !gulpfile.babel.js
 !LICENSE

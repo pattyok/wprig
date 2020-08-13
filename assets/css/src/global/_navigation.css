@@ -217,7 +217,7 @@
 	}
 
 	.main-navigation ul li a {
-		padding: 1rem 0.5rem;
+		padding: 1rem;
 	}
 
 	.main-navigation ul li:first-child a {
@@ -279,10 +279,10 @@
 .site-main .post-navigation,
 .site-main .pagination {
 	border-top: 1px solid var(--color-theme-grey-light);
-	margin: 0 auto 2em;
+	margin: 0 auto 4rem;
 	max-width: var(--content-width);
 	overflow: hidden;
-	padding: 1.5rem 0;
+	padding: 1.5rem 1rem;
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
 

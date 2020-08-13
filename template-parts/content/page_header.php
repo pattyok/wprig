@@ -9,7 +9,7 @@ namespace WP_Rig\WP_Rig;
 
 if ( is_404() ) {
 	?>
-	<header class="page-header">
+	<header class="page-header page-content">
 		<h1 class="page-title">
 			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-rig' ); ?>
 		</h1>
@@ -17,7 +17,7 @@ if ( is_404() ) {
 	<?php
 } elseif ( is_home() && ! have_posts() ) {
 	?>
-	<header class="page-header">
+	<header class="page-header archive-header">
 		<h1 class="page-title">
 			<?php esc_html_e( 'Nothing Found', 'wp-rig' ); ?>
 		</h1>
@@ -25,7 +25,7 @@ if ( is_404() ) {
 	<?php
 } elseif ( is_home() && ! is_front_page() ) {
 	?>
-	<header class="page-header">
+	<header class="page-header archive-header">
 		<h1 class="page-title">
 			<?php single_post_title(); ?>
 		</h1>
@@ -33,7 +33,7 @@ if ( is_404() ) {
 	<?php
 } elseif ( is_search() ) {
 	?>
-	<header class="page-header">
+	<header class="page-header archive-header">
 		<h1 class="page-title">
 			<?php
 			printf(
@@ -47,7 +47,7 @@ if ( is_404() ) {
 	<?php
 } elseif ( is_archive() ) {
 	?>
-	<header class="page-header">
+	<header class="page-header archive-header">
 		<?php
 		the_archive_title( '<h1 class="page-title">', '</h1>' );
 		the_archive_description( '<div class="archive-description">', '</div>' );
@@ -61,6 +61,8 @@ if ( is_404() ) {
 	$header_content = '';
 	if ( true !== $hide_image && has_post_thumbnail() ) {
 		$header_class .= 'has-post-thumbnail';
+	} else {
+		$header_class .= 'page-content';
 	}
 
 	?>
@@ -70,7 +72,7 @@ if ( is_404() ) {
 		get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
 	}
 	if ( true !== $hide_title ) {
-		the_title( '<h1 class="entry-title">', '</h1>' );
+		the_title( '<h1 class="page-title">', '</h1>' );
 	}
 	?>
 	</header><!-- .page-header -->

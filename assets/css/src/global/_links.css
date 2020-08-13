@@ -29,9 +29,15 @@ a:active {
 }
 
 .arrow-link > a {
-	font-weight: 600;
+	font-weight: 800;
 	text-decoration: none;
 	color: var(--global-font-color);
+}
+
+.arrow-link > a::after {
+	content: " \203A";
+	font-size: 80%;
+	transition: margin 0.2s ease;
 }
 
 .arrow-link > a:hover,
@@ -39,10 +45,10 @@ a:active {
 	color: var(--color-link-active);
 }
 
-.arrow-link > a::after {
-	content: " \203A";
+.arrow-link > a:hover::after,
+.arrow-link > a:active::after {
+	margin-left: 4px;
 }
-
 
 .gpopover {
 	background-color: #fff;

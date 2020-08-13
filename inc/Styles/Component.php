@@ -370,8 +370,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-			'Nanum Gothic' => array( '400', '700', '800' ),
 			'Nanum Myeongjo' => array( '400', '700', '800' ),
+			'Open Sans'      => array( '400', '700', '800' ),
 		);
 
 		/**

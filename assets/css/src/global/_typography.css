@@ -14,34 +14,82 @@ textarea {
 	line-height: var(--global-font-line-height);
 }
 
-
-h1 {
-	font-family: var(--highlight-font-family);
-	font-stretch: condensed;
-	clear: both;
-	font-size: var(--font-size-h1);
-}
-
+h1,
 h2,
 h3,
 h4,
-h5 {
-	line-height: 1.375;
-	font-weight: 400;
-	margin: 0 0 1.25rem;
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	line-height: 1.25;
 }
 
-h2 {
-	line-height: 1.15;
+
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+	margin-top: 2.25rem;
+}
+
+
+
+h1,
+.h1 {
+	font-weight: 700;
+	font-size: var(--font-size-h1);
+	line-height: 1.3888;
+}
+
+h2,
+.h2 {
+	line-height: 1.277777;
+	margin-bottom: 1rem;
+	font-weight: 700;
 	font-size: var(--font-size-h2);
 }
 
-h3 {
+h3,
+.h3 {
 	font-size: var(--font-size-h3);
 }
 
-h4 {
+h4,
+.h4 {
 	font-size: var(--font-size-h4);
+}
+
+
+@media (--tablet-wide-up) {
+
+	h1,
+	.h1 {
+		font-size: var(--font-size-h1-tw);
+		line-height: 1.25;
+	}
+}
+
+@media (--desktop-up) {
+
+	h1,
+	.h1 {
+		font-size: var(--font-size-h1-hd);
+		line-height: 1.25;
+	}
+
+	h2,
+	.h2 {
+		font-size: var(--font-size-h2-hd);
+		line-height: 1.25;
+	}
+
+	h3,
+	.h3 {
+		font-size: var(--font-size-h3-hd);
+		line-height: 1.25;
+	}
 }
 /* stylelint-enable */
 
